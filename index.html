@@ -462,7 +462,14 @@
 </head>
 <body>
     <div class="proper-logo">
-        <img src="./santa_monica_proper_logo.png" alt="Santa Monica Proper Hotel" style="width: 300px; height: auto;" />
+        <!-- Replace this src with your actual logo file path -->
+        <img src="santa_monica_proper_logo.png" alt="Santa Monica Proper Hotel" style="width: 300px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <!-- Fallback SVG logo if image doesn't load -->
+        <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+            <text x="250" y="30" font-family="BentonSans, sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="4px">SANTA MONICA</text>
+            <text x="250" y="85" font-family="ABCArizonaMix, serif" font-size="48" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="2px">PROPER</text>
+            <text x="250" y="115" font-family="BentonSans, sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="4px">HOTEL</text>
+        </svg>
     </div>
 
     <section class="hero-section">
