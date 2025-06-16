@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness Room Guide | Santa Monica Proper</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23000000'/><text x='50' y='70' font-family='sans-serif' font-size='60' fill='white' text-anchor='middle' font-weight='bold'>P</text></svg>">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'BentonSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background: #f4f2f0;
+            overflow-x: hidden;
+        }
+
+        .proper-logo {
+            position: absolute;
+            top: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+        }
+
+        .proper-logo svg {
+            width: 300px;
+            height: auto;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f4f2f0"/><path d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" fill="rgba(0,0,0,0.03)" opacity="0.5"/><circle cx="150" cy="150" r="3" fill="%23000000" opacity="0.1"/><circle cx="1050" cy="200" r="5" fill="%23000000" opacity="0.08"/><circle cx="300" cy="600" r="4" fill="%23000000" opacity="0.12"/><circle cx="900" cy="650" r="3" fill="%23000000" opacity="0.06"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 75vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin-top: 6rem;
+        }
+
+        .hero-content h1 {
+            font-family: 'ABCArizonaMix', 'BentonSans', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+            white-space: nowrap;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-content .description {
+            font-size: 1rem;
+            color: #000000;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'ABCArizonaMix', 'BentonSans', serif;
+            font-size: 2.8rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #000000;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: #000000;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .feature-header {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-title {
+            font-family: 'ABCArizonaMix', 'BentonSans', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #000000;
+            letter-spacing: -0.5px;
+        }
+
+        .feature-subtitle {
+            font-size: 0.9rem;
+            color: #000000;
+            font-weight: 400;
+            opacity: 0.7;
+        }
+
+        .feature-description {
+            color: #000000;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.8;
+        }
+
+        .instructions {
+            background: #f4f2f0;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .instructions h4 {
+            color: #000000;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 3rem;
+            line-height: 1.6;
+            color: #000000;
+            opacity: 0.8;
+        }
+
+        .step-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #000000;
+            color: #ffffff;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .benefit-tags {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-tag {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.05);
+            color: #000000;
+            padding: 0.4rem 1rem;
+            margin: 0.2rem;
+            font-size: 0.8rem;
+            font-weight: 400;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .brand-link {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-link a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+            display: inline-block;
+        }
+
+        .brand-link a:hover {
+            opacity: 0.7;
+        }
+
+        .wellness-philosophy {
+            background: linear-gradient(135deg, #000000, #1a1a1a);
+            color: #ffffff;
+            padding: 4rem 0;
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wellness-philosophy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="30" r="0.5" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="70" r="0.8" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .wellness-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wellness-content h2 {
+            font-family: 'ABCArizonaMix', 'BentonSans', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .wellness-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .tips-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tip-card h4 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.3px;
+        }
+
+        .tip-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tip-card li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .tip-card li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer {
+            background: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer h3 {
+            font-family: 'ABCArizonaMix', 'BentonSans', serif;
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .proper-signature {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.7;
+            font-style: italic;
+        }
+
+        @media (max-width: 767px) {
+            .proper-logo svg {
+                width: 200px;
+            }
+            
+            .hero-section {
+                height: 80vh;
+                min-height: 500px;
+            }
+            
+            .hero-content {
+                margin-top: 4rem;
+                padding: 2rem;
+                max-width: 90%;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+                white-space: normal;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: rgba(0, 0, 0, 0.3);
+            margin: 2rem auto;
+        }
+
+        .geometric-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .geometric-pattern::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, transparent 40%, rgba(0, 0, 0, 0.03) 50%, transparent 60%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="proper-logo">
+        <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+            <!-- Santa Monica -->
+            <text x="250" y="30" font-family="BentonSans, sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="4px">SANTA MONICA</text>
+            
+            <!-- PROPER -->
+            <text x="250" y="85" font-family="ABCArizonaMix, serif" font-size="48" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="2px">PROPER</text>
+            
+            <!-- HOTEL -->
+            <text x="250" y="115" font-family="BentonSans, sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="4px">HOTEL</text>
+        </svg>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Your Stay, Your Wellness Ritual</h1>
+            <p class="subtitle">Prioritize what well-being means to you.</p>
+            <div class="divider"></div>
+            <p class="description">From the calming retreat of our Restorative Wellness Rooms, designed for deep, restorative sleep, to our Performance Rooms that keep your movement rituals close at hand, Proper offers a stay experience that meets you wherever you are on your personal wellness journey.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Sleep Technology</h2>
+            <p class="section-description">Advanced systems engineered for deeper, restorative sleep through intelligent temperature control, air purification, and natural wake experiences.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card geometric-pattern">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Eight Sleep Smart Mattress</h3>
+                        <p class="feature-subtitle">Individualized Climate Controls</p>
+                    </div>
+                    <p class="feature-description">Advanced mattress technology with individualized climate controls that dynamically adjusts temperature throughout the night for optimal sleep cycles.</p>
+                    
+                    <div class="instructions">
+                        <h4>Setup & Controls</h4>
+                        <ol class="step-list">
+                            <li>Download the Eight Sleep app before bedtime</li>
+                            <li>Create your profile and set preferred sleep temperature (65-68°F recommended)</li>
+                            <li>Select your side of the bed within the app</li>
+                            <li>Set wake time for gentle temperature-based awakening</li>
+                            <li>Allow automatic adjustments throughout sleep cycles</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="benefit-tags">
+                        <span class="benefit-tag">Dual Zone Control</span>
+                        <span class="benefit-tag">Sleep Analytics</span>
+                        <span class="benefit-tag">Smart Wake</span>
+                    </div>
+                    
+                    <div class="brand-link">
+                        <a href="https://www.eightsleep.com" target="_blank" rel="noopener noreferrer">Learn more about Eight Sleep →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card geometric-pattern">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Loftie Alarm Clock</h3>
+                        <p class="feature-subtitle">Sunrise Simulation & Guided Sleep</p>
+                    </div>
+                    <p class="feature-description">Doctor-designed alarm clock with sunrise simulation and guided sleep sounds for natural wake cycles and deeper rest.</p>
+                    
+                    <div class="instructions">
+                        <h4>Natural Wake Experience</h4>
+                        <ol class="step-list">
+                            <li>Press crown and turn dial to set alarm time</li>
+                            <li>Choose nature sounds or guided meditations for bedtime</li>
+                            <li>Experience gentle two-phase wake sequence</li>
+                            <li>Tap top surface for snooze function</li>
+                            <li>Access wellness content via meditation button</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="benefit-tags">
+                        <span class="benefit-tag">Natural Awakening</span>
+                        <span class="benefit-tag">Sleep Sounds</span>
+                        <span class="benefit-tag">Meditation</span>
+                    </div>
+                    
+                    <div class="brand-link">
+                        <a href="https://www.loftie.com" target="_blank" rel="noopener noreferrer">Learn more about Loftie →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card geometric-pattern">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Sleep Elixir</h3>
+                        <p class="feature-subtitle">Natural Sleep Support</p>
+                    </div>
+                    <p class="feature-description">Natural sleep elixir formulated with premium ingredients to help ease into sleep faster and support deeper rest cycles.</p>
+                    
+                    <div class="instructions">
+                        <h4>Evening Ritual</h4>
+                        <ol class="step-list">
+                            <li>Take one serving 30-60 minutes before intended bedtime</li>
+                            <li>Mix with water or consume as directed</li>
+                            <li>Avoid caffeine 6 hours prior to taking</li>
+                            <li>Create calming pre-sleep environment</li>
+                            <li>Allow 7-9 hours for optimal sleep duration</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="benefit-tags">
+                        <span class="benefit-tag">Natural Ingredients</span>
+                        <span class="benefit-tag">Sleep Support</span>
+                        <span class="benefit-tag">Faster Onset</span>
+                    </div>
+                    
+                    <div class="brand-link">
+                        <a href="https://www.eightsleep.com" target="_blank" rel="noopener noreferrer">Learn more about Sleep Elixir →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Air & Water Purification</h2>
+            <p class="section-description">Advanced filtration systems for cleaner air and water, creating the optimal environment for health and rejuvenation.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card geometric-pattern">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Jaspr Air Purifier</h3>
+                        <p class="feature-subtitle">Advanced Air Filtration</p>
+                    </div>
+                    <p class="feature-description">Industry-leading air purification technology that eliminates airborne contaminants, allergens, and pollutants for cleaner, healthier air.</p>
+                    
+                    <div class="instructions">
+                        <h4>Optimal Air Quality</h4>
+                        <ol class="step-list">
+                            <li>Press power button to activate unit</li>
+                            <li>Select Auto mode for optimal performance</li>
+                            <li>Monitor air quality indicator lights</li>
+                            <li>Keep doors and windows closed during operation</li>
+                            <li>Run continuously for best results</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="benefit-tags">
+                        <span class="benefit-tag">Allergen Removal</span>
+                        <span class="benefit-tag">Real-Time Monitoring</span>
+                        <span class="benefit-tag">Quiet Operation</span>
+                    </div>
+                    
+                    <div class="brand-link">
+                        <a href="https://www.jaspr.com" target="_blank" rel="noopener noreferrer">Learn more about Jaspr →</a>
+                    </div>
+                </div>
+
+                <div class="feature-card geometric-pattern">
+                    <div class="feature-header">
+                        <h3 class="feature-title">Filterbaby Water Filtration</h3>
+                        <p class="feature-subtitle">Complete Water Purification System</p>
+                    </div>
+                    <p class="feature-description">Comprehensive water filtration system for both shower and faucet, removing chlorine, heavy metals, and contaminants for ultra-pure water throughout your stay.</p>
+                    
+                    <div class="instructions">
+                        <h4>Pure Water Experience</h4>
+                        <ol class="step-list">
+                            <li>Both shower and faucet filters are pre-installed and ready to use</li>
+                            <li>Turn on water normally—no setup required</li>
+                            <li>Notice softer water and reduced chlorine scent immediately</li>
+                            <li>Use filtered faucet water for skincare routines and oral care</li>
+                            <li>Experience gentler shower water on skin and hair</li>
+                            <li>No maintenance needed during your stay</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="benefit-tags">
+                        <span class="benefit-tag">Chlorine Removal</span>
+                        <span class="benefit-tag">Heavy Metal Filtration</span>
+                        <span class="benefit-tag">Softer Skin & Hair</span>
+                        <span class="benefit-tag">Ultra-Pure Water</span>
+                    </div>
+                    
+                    <div class="brand-link">
+                        <a href="https://www.filterbaby.com" target="_blank" rel="noopener noreferrer">Learn more about Filterbaby →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wellness-philosophy">
+        <div class="container">
+            <div class="wellness-content">
+                <h2>Your Wellness, Your Way</h2>
+                <p>Every element in your Wellness Room has been thoughtfully curated to support your personal wellness ritual. Whether you're seeking deeper sleep, cleaner air, or simply a moment of calm, these technologies work together to create an environment that supports your well-being.</p>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4>Optimize Your Sleep</h4>
+                        <ul>
+                            <li>Set your Eight Sleep temperature 30 minutes before bedtime</li>
+                            <li>Use Loftie's meditation sounds to wind down</li>
+                            <li>Take Sleep Elixir 60 minutes before sleep</li>
+                            <li>Keep room temperature between 65-68°F</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Create Your Environment</h4>
+                        <ul>
+                            <li>Run Jaspr air purifier continuously for best results</li>
+                            <li>Keep windows closed during air purification</li>
+                            <li>Enjoy filtered water for all hydration and skincare needs</li>
+                            <li>Use blackout curtains for optimal sleep darkness</li>
+                        </ul>
+                    </div>
+                    <div class="tip-card">
+                        <h4>Morning Wellness Ritual</h4>
+                        <ul>
+                            <li>Allow Loftie's gentle sunrise simulation to wake you naturally</li>
+                            <li>Use filtered faucet water for morning skincare routine</li>
+                            <li>Take time to check your sleep analytics in the Eight Sleep app</li>
+                            <li>Enjoy cleaner, softer water in your morning shower</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <h3>Santa Monica Proper</h3>
+                <p>Where wellness meets luxury hospitality</p>
+                <p>Curated experiences for the mindful traveler</p>
+                <div class="proper-signature">
+                    — Proper Hotels
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
