@@ -73,10 +73,7 @@
         }
 
         .hero-section {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="%23f4f2f0"/><path d="M0,400 Q300,300 600,400 T1200,400 L1200,800 L0,800 Z" fill="rgba(0,0,0,0.03)" opacity="0.5"/><circle cx="150" cy="150" r="3" fill="%23000000" opacity="0.1"/><circle cx="1050" cy="200" r="5" fill="%23000000" opacity="0.08"/><circle cx="300" cy="600" r="4" fill="%23000000" opacity="0.12"/><circle cx="900" cy="650" r="3" fill="%23000000" opacity="0.06"/></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.02)), #f4f2f0;
             height: 75vh;
             min-height: 600px;
             display: flex;
@@ -479,10 +476,7 @@
         }
 
         .divider {
-            width: 60px;
-            height: 1px;
-            background: rgba(0, 0, 0, 0.3);
-            margin: 2rem auto;
+            display: none;
         }
 
         .geometric-pattern {
@@ -491,14 +485,7 @@
         }
 
         .geometric-pattern::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, transparent 40%, rgba(0, 0, 0, 0.03) 50%, transparent 60%);
-            pointer-events: none;
+            display: none;
         }
     </style>
 </head>
@@ -538,11 +525,12 @@
                     <div class="instructions">
                         <h4>Setup & Controls</h4>
                         <ol class="step-list">
-                            <li>Download the Eight Sleep app before bedtime</li>
-                            <li>Create your profile and set preferred sleep temperature (65-68°F recommended)</li>
+                            <li>Open the Eight Sleep app on the provided iPhone</li>
+                            <li>Use the general profile, add your basic information (age, gender, typical bedtime etc.) and set preferred sleep temperature</li>
                             <li>Select your side of the bed within the app</li>
-                            <li>Set wake time for gentle temperature-based awakening</li>
+                            <li>Set or confirm your wake-up time for gentle temperature-based awakening</li>
                             <li>Allow automatic adjustments throughout sleep cycles</li>
+                            <li>Do not log out from the app – the system will be reset for each guest</li>
                         </ol>
                     </div>
                     
@@ -567,6 +555,8 @@
                     <div class="instructions">
                         <h4>Natural Wake Experience</h4>
                         <ol class="step-list">
+                            <li>Open the <strong>Loftie App</strong> on the <strong>provided iPhone</strong> (already set up for you)</li>
+                            <li>In the app, you can: Set or adjust the alarm time, Choose alarm sounds, Browse sleep and wellness content</li>
                             <li>Press crown and turn dial to set alarm time</li>
                             <li>Choose nature sounds or guided meditations for bedtime</li>
                             <li>Experience gentle two-phase wake sequence</li>
