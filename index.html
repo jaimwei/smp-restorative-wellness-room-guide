@@ -58,6 +58,16 @@
             text-align: center;
         }
 
+        .proper-logo a {
+            display: block;
+            text-decoration: none;
+        }
+
+        .proper-logo a:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
         .proper-logo img {
             width: 240px;
             height: auto;
@@ -429,7 +439,8 @@
         }
 
         @media (max-width: 767px) {
-            .proper-logo img {
+            .proper-logo img,
+            .proper-logo svg {
                 width: 180px;
             }
             
@@ -491,13 +502,15 @@
 </head>
 <body>
     <div class="proper-logo">
-        <img src="https://raw.githubusercontent.com/jaimwei/smp-restorative-wellness-room-guide/main/santa_monica_proper_logo.png" alt="Santa Monica Proper Hotel" style="width: 240px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <!-- Fallback SVG logo if image doesn't load -->
-        <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="display: none; width: 280px; height: auto;">
-            <text x="250" y="30" font-family="BentonSans, sans-serif" font-size="14" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="3px">SANTA MONICA</text>
-            <text x="250" y="75" font-family="ABCArizonaMix, serif" font-size="38" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="1px">PROPER</text>
-            <text x="250" y="105" font-family="BentonSans, sans-serif" font-size="14" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="3px">HOTEL</text>
-        </svg>
+        <a href="https://www.properhotel.com/santa-monica" target="_blank" rel="noopener noreferrer">
+            <img src="https://raw.githubusercontent.com/jaimwei/smp-restorative-wellness-room-guide/main/santa_monica_proper_logo.png" alt="Santa Monica Proper Hotel" style="width: 240px; height: auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+            <!-- Fallback SVG logo if image doesn't load -->
+            <svg viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg" style="display: none; width: 280px; height: auto;">
+                <text x="250" y="30" font-family="BentonSans-WideBold, sans-serif" font-size="14" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="3px">SANTA MONICA</text>
+                <text x="250" y="75" font-family="ABCArizonaMix-Light, serif" font-size="38" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="1px">PROPER</text>
+                <text x="250" y="105" font-family="BentonSans-WideBold, sans-serif" font-size="14" font-weight="400" fill="#000000" text-anchor="middle" letter-spacing="3px">HOTEL</text>
+            </svg>
+        </a>
     </div>
 
     <section class="hero-section">
@@ -774,69 +787,33 @@
                         <a href="https://www.elvt.com" target="_blank" rel="noopener noreferrer">Learn more about ELVT →</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-            <p class="section-description">Advanced filtration systems for cleaner air and water, creating the optimal environment for health and rejuvenation.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card geometric-pattern">
-                    <div class="feature-header">
-                        <h3 class="feature-title">Jaspr Air Purifier</h3>
-                        <p class="feature-subtitle">Advanced Air Filtration</p>
-                    </div>
-                    <p class="feature-description">Industry-leading air purification technology that eliminates airborne contaminants, allergens, and pollutants for cleaner, healthier air.</p>
-                    
-                    <div class="instructions">
-                        <h4>Optimal Air Quality</h4>
-                        <ol class="step-list">
-                            <li>Press power button to activate unit</li>
-                            <li>Select Auto mode for optimal performance</li>
-                            <li>Monitor air quality indicator lights</li>
-                            <li>Keep doors and windows closed during operation</li>
-                            <li>Run continuously for best results</li>
-                        </ol>
-                    </div>
-                    
-                    <div class="benefit-tags">
-                        <span class="benefit-tag">Allergen Removal</span>
-                        <span class="benefit-tag">Real-Time Monitoring</span>
-                        <span class="benefit-tag">Quiet Operation</span>
-                    </div>
-                    
-                    <div class="brand-link">
-                        <a href="https://www.jaspr.com" target="_blank" rel="noopener noreferrer">Learn more about Jaspr →</a>
-                    </div>
-                </div>
 
                 <div class="feature-card geometric-pattern">
                     <div class="feature-header">
-                        <h3 class="feature-title">Filterbaby Water Filtration</h3>
-                        <p class="feature-subtitle">Complete Water Purification System</p>
+                        <h3 class="feature-title">Slip Sleep Mask</h3>
+                        <p class="feature-subtitle">Luxurious Light Blocking</p>
                     </div>
-                    <p class="feature-description">Comprehensive water filtration system for both shower and faucet, removing chlorine, heavy metals, and contaminants for ultra-pure water throughout your stay.</p>
+                    <p class="feature-description">Premium silk sleep mask designed for complete light blocking and ultimate comfort, promoting deeper sleep and natural skin care benefits.</p>
                     
                     <div class="instructions">
-                        <h4>Pure Water Experience</h4>
+                        <h4>Optimal Sleep Environment</h4>
                         <ol class="step-list">
-                            <li>Both shower and faucet filters are pre-installed and ready to use</li>
-                            <li>Turn on water normally—no setup required</li>
-                            <li>Notice softer water and reduced chlorine scent immediately</li>
-                            <li>Use filtered faucet water for skincare routines and oral care</li>
-                            <li>Experience gentler shower water on skin and hair</li>
-                            <li>No maintenance needed during your stay</li>
+                            <li>Find your Slip sleep mask with turndown service</li>
+                            <li>Adjust the elastic strap for comfortable fit</li>
+                            <li>Position mask gently over eyes for complete light blocking</li>
+                            <li>Enjoy the soft silk texture against your skin</li>
+                            <li>Remove carefully in the morning to preserve the silk</li>
                         </ol>
                     </div>
                     
                     <div class="benefit-tags">
-                        <span class="benefit-tag">Chlorine Removal</span>
-                        <span class="benefit-tag">Heavy Metal Filtration</span>
-                        <span class="benefit-tag">Softer Skin & Hair</span>
-                        <span class="benefit-tag">Ultra-Pure Water</span>
+                        <span class="benefit-tag">Complete Darkness</span>
+                        <span class="benefit-tag">Premium Silk</span>
+                        <span class="benefit-tag">Skin Benefits</span>
                     </div>
                     
                     <div class="brand-link">
-                        <a href="https://www.filterbaby.com" target="_blank" rel="noopener noreferrer">Learn more about Filterbaby →</a>
+                        <a href="https://www.slipsilkpillowcase.com" target="_blank" rel="noopener noreferrer">Learn more about Slip →</a>
                     </div>
                 </div>
             </div>
